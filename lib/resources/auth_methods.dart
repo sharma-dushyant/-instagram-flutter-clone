@@ -14,17 +14,16 @@ class AuthMethods {
 
     DocumentSnapshot snap =
         await _firestore.collection('users').doc(currentUser.uid).get();
+    return model.User.fromSnap(snap);
 
-    // return model.User.fromSnap(snap);
-
-    return model.User(
-        username: snap["username"],
-        uid: snap["uid"],
-        photoUrl: snap["photoUrl"],
-        email: snap["email"],
-        bio: snap["bio"],
-        followers: snap["followers"],
-        following: snap["following"]);
+    // return model.User(
+    //     username: snapshot["username"],
+    //     uid: snapshot["uid"],
+    //     photoUrl: snapshot["photoUrl"],
+    //     email: snapshot["email"],
+    //     bio: snapshot["bio"],
+    //     followers: snapshot["followers"],
+    //     following: snapshot["following"]);
   }
 
   // Signing Up User
